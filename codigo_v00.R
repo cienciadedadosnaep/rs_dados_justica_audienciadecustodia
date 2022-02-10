@@ -46,8 +46,7 @@ library(jsonlite)
 
 library(readr)
 dados <- read_delim("data/audiencia_idade.csv", 
-                              delim = ";", escape_double = FALSE, col_types = cols(sem_id = col_double()), 
-                              trim_ws = TRUE)
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
 names(dados)
 
 # Selecao de parte do banco que responde as perguntas da planilha de povoamento
@@ -55,7 +54,7 @@ names(dados)
 
 ##  Perguntas e titulos 
 
-T_ST_P_No_POPULACAO <- read_csv("data/TEMA_SUBTEMA_P_No - JUSTICA.csv")
+T_ST_P_No_Justica <- read_csv("data/TEMA_SUBTEMA_P_No - JUSTICA.csv")
 
 # Lembrar de substituir nomes de 
 #names(dados) = c("ano","q1","q2","q3","q41","q42",
