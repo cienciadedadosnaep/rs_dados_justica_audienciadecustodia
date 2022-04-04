@@ -136,7 +136,7 @@ texto<-paste('{"title":{"text":"',titulo,
              '{"name":"',nomes[5],'","data":',data_serie4,',',
              '"type":"bar","color":"',corsec_recossa_azul[1],'","showBackground":true,',
              '"backgroundStyle":{"color":"rgba(180, 180, 180, 0.2)"},"symbol":"',simbolo_linhas[4],
-             '","symbolSize":10,"itemStyle":{"borderRadius":10,"borderColor":"',corsec_recossa_azul[1],'","borderWidth":2}},',
+             '","symbolSize":10,"itemStyle":{"borderRadius":10,"borderColor":"',corsec_recossa_azul[1],'","borderWidth":2}}',
              ']}',sep='')
 
 #SAIDA_POVOAMENTO$CODIGO[i] <- texto   
