@@ -49,8 +49,13 @@ names(aud_sexo_bio_sexo_bio) = c("ano","Homens","Mulheres")
 dados3<- aud_sexo_bio_sexo_bio %>% select(ano,Homens,Mulheres)
 nomes <- names(dados3)
 
+dados3 %<>% mutate(`Homens`=`Homens`/1000)
+dados3 %<>% mutate(`Mulheres`=`Mulheres`/1000)
+dados3
+
 ##  Perguntas e titulos 
-T_ST_P_No_Justica <- read_csv("data/TEMA_SUBTEMA_P_No - JUSTICA.csv")
+T_ST_P_No_Justica <- read_delim("data/TEMA_SUBTEMA_P_No - JUSTICA.csv", 
+                                delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 #dados <- dados %>% add_column(valor = 'valor', .after = 'trimestre')
 
@@ -113,12 +118,12 @@ texto<-paste('{"title":{"text":"',titulo,
              '","subtext":"',subtexto,
              '","sublink":"',link,'"},',
              '"tooltip":{"trigger":"axis"},',
-             '"toolbox":{"left":"center","orient":"horizontal","itemSize":20,"top":45,"show":true,',
+             '"toolbox":{"left":"center","orient":"horizontal","itemSize":20,"top":20,"show":true,',
              '"feature":{"dataZoom":{"yAxisIndex":"none"},',
              '"dataView":{"readOnly":false},',
              '"restore":{},"saveAsImage":{}}},"legend":{"show":true,"top":"bottom"},"xAxis":{"type":"category",',
              '"data":',data_axis,'},',
-             '"yAxis":{"type":"value","axisLabel":{"formatter":"{value}"}},',
+             '"yAxis":{"type":"value","axisLabel":{"formatter":"{value}mil"}},',
              '"series":[{"name":"',nomes[2],'","data":',data_serie,',',
              '"type":"bar","color":"',corsec_recossa_azul[1],'","showBackground":true,',
              '"backgroundStyle":{"color":"rgba(180, 180, 180, 0.2)"},"symbol":"',simbolo_linhas[1],

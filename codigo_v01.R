@@ -48,8 +48,18 @@ aud_sexo_bio_raca <- read_csv("data/aud_sexo_bio - raca.csv")
 names(aud_sexo_bio_raca) = c("ano", "Sem informação","Pretos/Pardos","Brancos","Amarelos")
 dados2<- aud_sexo_bio_raca %>% select(ano,`Sem informação`,`Pretos/Pardos`,Brancos,Amarelos)
 nomes <- names(dados2)
+
+## Reorganizando a escala dos dados
+
+dados2 %<>% mutate(`Sem informação`=`Sem informação`/1000)
+dados2 %<>% mutate(`Pretos/Pardos`=`Pretos/Pardos`/1000)
+dados2 %<>% mutate(`Brancos`=`Brancos`/1000)
+dados2 %<>% mutate(`Amarelos`=`Amarelos`/1000)
+dados2
+
 ##  Perguntas e titulos 
-T_ST_P_No_Justica <- read_csv("data/TEMA_SUBTEMA_P_No - JUSTICA.csv")
+T_ST_P_No_Justica <- read_delim("data/TEMA_SUBTEMA_P_No - JUSTICA.csv", 
+                                delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 #dados <- dados %>% add_column(valor = 'valor', .after = 'trimestre')
 
@@ -121,12 +131,12 @@ texto<-paste('{"title":{"text":"',titulo,
              '","subtext":"',subtexto,
              '","sublink":"',link,'"},',
              '"tooltip":{"trigger":"axis"},',
-             '"toolbox":{"left":"center","orient":"horizontal","itemSize":20,"top":45,"show":true,',
+             '"toolbox":{"left":"center","orient":"horizontal","itemSize":20,"top":20,"show":true,',
              '"feature":{"dataZoom":{"yAxisIndex":"none"},',
              '"dataView":{"readOnly":false},',
              '"restore":{},"saveAsImage":{}}},"legend":{"show":true,"top":"bottom"},"xAxis":{"type":"category",',
              '"data":',data_axis,'},',
-             '"yAxis":{"type":"value","axisLabel":{"formatter":"{value}"}},',
+             '"yAxis":{"type":"value","axisLabel":{"formatter":"{value}mil"}},',
              '"series":[{"name":"',nomes[2],'","data":',data_serie,',',
              '"type":"bar","color":"',corsec_recossa_azul[6],'","showBackground":true,',
              '"backgroundStyle":{"color":"rgba(180, 180, 180, 0.2)"},"symbol":"',simbolo_linhas[1],
