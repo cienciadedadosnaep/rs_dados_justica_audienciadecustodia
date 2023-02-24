@@ -1,9 +1,1 @@
-[
- {
- "ano": [ "2017", "2018", "2019" ],
-"Sem informaÃ§Ã£o": [    1.044,    1.278,    0.626 ],
-"Pretos/Pardos": [    5.022,    4.228,    4.428 ],
-"Brancos": [    0.067,    0.079,    0.098 ],
-"Amarelos": [    0.002,    0.003,    0.001 ] 
-} 
-]
+[[{"ano":"2017","Sem informação":1.04,"Pretos/Pardos":5.02,"Brancos":0.07,"Amarelos":0},{"ano":"2018","Sem informação":1.28,"Pretos/Pardos":4.23,"Brancos":0.08,"Amarelos":0},{"ano":"2019","Sem informação":0.63,"Pretos/Pardos":4.43,"Brancos":0.1,"Amarelos":0}]]

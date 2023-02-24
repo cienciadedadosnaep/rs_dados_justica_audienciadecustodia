@@ -54,10 +54,10 @@ nomes <- names(dados)
 
 ## Reorganizando a escala
 
-dados %<>% mutate(`18-29`=`18-29`/1000)
-dados %<>% mutate(`30-41`=`30-41`/1000)
-dados %<>% mutate(`42-59`=`42-59`/1000)
-dados %<>% mutate(`60+`=`60+`/1000)
+dados %<>% mutate(`18-29`= round(`18-29`/1000,2))
+dados %<>% mutate(`30-41`= round(`30-41`/1000,2))
+dados %<>% mutate(`42-59`= round(`42-59`/1000,2))
+dados %<>% mutate(`60+`= round(`60+`/1000,2))
 dados
 
 ##  Perguntas e titulos 
@@ -124,13 +124,14 @@ data_serie4 <- paste('[',gsub(' ',',',
 texto<-paste('{"title":{"text":"',titulo,
              '","subtext":"',subtexto,
              '","sublink":"',link,'"},',
-             '"tooltip":{"trigger":"axis"},',
+             '"tooltip":{"trigger":"item","responsive":"true","position":"top","formatter":"{b}: {c} mil"},',
              '"toolbox":{"left":"center","orient":"horizontal","itemSize":20,"top":20,"show":true,',
              '"feature":{"dataZoom":{"yAxisIndex":"none"},',
              '"dataView":{"readOnly":false},',
-             '"restore":{},"saveAsImage":{}}},"legend":{"show":true,"top":"bottom"},"xAxis":{"type":"category",',
+             '"restore":{},"saveAsImage":{}}},"legend":{"show":true,"bottom":30},"grid":{"bottom":80},"xAxis":{"type":"category",',
              '"data":',data_axis,'},',
              '"yAxis":{"type":"value","axisLabel":{"formatter":"{value}mil"}},',
+             '"graphic":[{"type":"text","left":"center","top":"bottom","z":100, "style":{"fill":"gray","text":"Obs: Ponto é separador decimal", "font":"8px sans-srif","fontSize":12}}],',
              '"series":[{"name":"',nomes[2],'","data":',data_serie,',',
              '"type":"bar","color":"',corsec_recossa_azul[6],'","showBackground":true,',
              '"backgroundStyle":{"color":"rgba(180, 180, 180, 0.2)"},"symbol":"',simbolo_linhas[1],
